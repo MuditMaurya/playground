@@ -1,0 +1,17 @@
+    nohup wget --limit-rate=200k --no-clobber --convert-links --random-wait -r -p -E -e robots=off -U mozilla http://www.kossboss.com &
+
+THEN TO VIEW OUTPUT ( it will put a nohup.out file where you run the command):
+
+tail -f nohup.out
+
+WHAT DO ALL THE SWITCHES MEAN:
+--limit-rate=200k: Limit download to 200 Kb /sec
+--no-clobber: don't overwrite any existing files (used in case the download is interrupted and
+resumed).
+--convert-links: convert links so that they work locally, off-line, instead of pointing to a website online
+--random-wait: Random waits between download - websites dont like their websites downloaded
+-r: Recursive - downloads full website
+-p: downloads everything even pictures (same as --page-requsites, downloads the images, css stuff and so on)
+-E: gets the right extension of the file, without most html and other files have no extension
+-e robots=off: act like we are not a robot - not like a crawler - websites dont like robots/crawlers unless they are google/or other famous search engine
+-U mozilla: pretends to be just like a browser Mozilla is looking at a page instead of a crawler like wget
