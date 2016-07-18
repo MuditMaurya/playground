@@ -113,3 +113,6 @@ RUN  echo 'Acquire::http { Proxy "http://dockerhost:3142"; };' >> /etc/apt/apt.c
 
 # MongoDB Container
 docker run -p 27017:27017 --name db -v /home/mbtamuli/workspace/virtual/docker/datadir:/data/db -d mongo
+
+# youtube-dl
+youtube-dl "{insert_playlist_url}" -o "%(autonumber)s-%(title)s.%(ext)s" --autonumber-size 2
